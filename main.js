@@ -3,16 +3,16 @@ const form = document.getElementById("earthquakeSearch");
 form.addEventListener('submit', async function (event) {
     event.preventDefault();
 
-    const startDate = document.getElementById("startDate").value;
-    const endDate = document.getElementById("endDate").value;
-    const minMag = document.getElementById("minMag").value;
-    const maxMag = document.getElementById("maxMag").value;
-    const naturalOnly = document.getElementById("natural").checked;
+        const startDate = document.getElementById("startDate").value;
+        const endDate = document.getElementById("endDate").value;
+        const minMag = document.getElementById("minMag").value;
+        const maxMag = document.getElementById("maxMag").value;
+        const naturalOnly = document.getElementById("natural").checked;
 
-    const minTime = startDate ? new Date(`${startDate}T00:00:00.00Z`).getTime() : null;
-    const maxTime = endDate ? new Date(`${endDate}T00:00:00.00Z`).getTime() : null;
+        const minTime = startDate ? new Date(`${startDate}T00:00:00.00Z`).getTime() : null;
+        const maxTime = endDate ? new Date(`${endDate}T00:00:00.00Z`).getTime() : null;
 
-    clearMarkers();
+        clearMarkers();
 
     const earthquakes = await window.getEarthquakes({
         minTime,
@@ -51,7 +51,7 @@ function clearMarkers() {
 }
 
 earthquakeSpots = L.layerGroup().addTo(map);
-function addMarker(lat, long, mmi, mag, depth){
+function addMarker(lat, long, mmi, mag, depth, name){
     if(mmi == null){
         estimatedMMI = 1.2 * mag - 1;
         if(estimatedMMI > 8){
