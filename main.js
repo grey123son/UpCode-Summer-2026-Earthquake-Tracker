@@ -1,14 +1,39 @@
 const form = document.getElementById("earthquakeSearch");
 
-form.addEventListener('submit', function (event){
+form.addEventListener('submit', async function (event) {
     event.preventDefault();
 
-    const formData = new FormData(event.target);
+    const startDate = document.getElementById("startDate").value;
+    const endDate = document.getElementById("endDate").value;
+    const minMag = document.getElementById("minMag").value;
+    const maxMag = document.getElementById("maxMag").value;
+    const naturalOnly = document.getElementById("natural").checked;
 
-    const formProps = Object.fromEntries(formData.entries());
+    const minTime = startDate ? new Date(`${startDate}T00:00:00.00Z`).getTime() : null;
+    const maxTime = endDate ? new Date(`${endDate}T00:00:00.00Z`).getTime() : null;
 
-    console.log(formProps.startDate);
+    clearMarkers();
+
+    const earthquakes = await window.getEarthquakes({
+        minTime,
+        maxTime,
+        minMagnitude: minMag,
+        maxMagnitude: maxMag,
+        isEarthquake: naturalOnly ? true : undefined,
+        limit: 70000,
+    });
+
+
+    console.log("eqs:", earthquakes);
+
+    earthquakes.forEach((quake) => {
+        addMarker(quake.y, quake.x, quake.mmi, quake.mag, quake.z);
+    });
 });
+
+
+
+
 
 var map = L.map('map').setView([38.1187, -118.4751], 5);
 

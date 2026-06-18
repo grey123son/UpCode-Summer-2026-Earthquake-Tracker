@@ -11,7 +11,7 @@ async function getEarthquakes({
     limit = 70000,
 } = {}) {
     const params = new URLSearchParams({
-        select: "id,mag,time,type,title,x,y,z",
+        select: "id,mag,time,type,title,x,y,z,mmi",
         order: "time.desc",
         limit: String(limit),
     });
