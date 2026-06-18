@@ -40,11 +40,7 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 }).addTo(map);
 
 function clearMarkers() {
-    markers.forEach((marker) => {
-        map.removeLayer(marker);
-    });
-
-    markers = [];
+    earthquakeSpots.clearLayers();
 }
 
 earthquakeSpots = L.layerGroup().addTo(map);
