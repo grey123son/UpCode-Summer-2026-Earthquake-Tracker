@@ -17,8 +17,8 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 }).addTo(map);
 
-var markers = [];
-function addMarker(lat, long, mmi, mag, depth){
+earthquakeSpots = L.layerGroup().addTo(map);
+function addMarker(lat, long, mmi, mag, depth, name){
     if(mmi == null){
         estimatedMMI = 1.2 * mag - 1;
         if(estimatedMMI > 8){
@@ -35,12 +35,19 @@ function addMarker(lat, long, mmi, mag, depth){
     
     console.log(estimatedFeltRadius)
 
-    markers.push(L.circle([lat, long],{
+    var radius = L.circle([lat, long],{
         color: 'red',
         fillColor: '#f03',
         fillOpacity: 0.5,
         radius: estimatedFeltRadius*1000    
-    }).addTo(map));
+    }).addTo(map);
+    earthquakeSpots.addLayer(radius);
+
+    var marker = L.marker([lat, long], {
+        title: name
+    }).addTo(map);
+    earthquakeSpots.addLayer(marker);
+
 }
 
 addMarker(35.2991666666667, -117.812333333333, 3.583, 3.55, 7.62);
