@@ -42,8 +42,6 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 }).addTo(map);
 
-var markers = [];
-
 function clearMarkers() {
     markers.forEach((marker) => {
         map.removeLayer(marker);
@@ -51,6 +49,8 @@ function clearMarkers() {
 
     markers = [];
 }
+
+earthquakeSpots = L.layerGroup().addTo(map);
 function addMarker(lat, long, mmi, mag, depth){
     if(mmi == null){
         estimatedMMI = 1.2 * mag - 1;
