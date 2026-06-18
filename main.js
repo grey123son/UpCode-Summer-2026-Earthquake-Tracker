@@ -65,9 +65,15 @@ function addMarker(lat, long, mmi, mag, depth, name){
         color: 'red',
         fillColor: '#f03',
         fillOpacity: 0.5,
-        radius: estimatedFeltRadius*1000,    
-        title: name
+        radius: estimatedFeltRadius*1000 
     }).addTo(map);
+
+    radius.bindToolTip(name, {
+        permanent: false,
+        direciton: "top",
+        sticky: true
+    });
+
     earthquakeSpots.addLayer(radius);
 }
 
