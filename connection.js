@@ -19,11 +19,11 @@ async function getEarthquakes({
     if (minTime) params.append("time", `gte.${minTime}`);
     if (maxTime) params.append("time", `lte.${maxTime}`);
 
-    if (minMagnitude !== undefined && minMagnitude !== null && Number.isInteger(minMagnitude) && minMagnitude !== "") {
+    if (minMagnitude !== undefined && minMagnitude !== null && minMagnitude !== "") {
         params.append("mag", `gte.${minMagnitude}`);
     }
 
-    if (maxMagnitude !== undefined && maxMagnitude !== null && Number.isInteger(maxMagnitude) && maxMagnitude !== "") {
+    if (maxMagnitude !== undefined && maxMagnitude !== null && maxMagnitude !== "") {
         params.append("mag", `lte.${maxMagnitude}`);
     }
 
