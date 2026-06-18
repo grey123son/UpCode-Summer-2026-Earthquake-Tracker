@@ -1,6 +1,7 @@
 <head>
     <title>Map Testing</title>
 
+    <link rel="stylesheet" href="style.css">
     <script src="main.js" defer></script>
 
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
@@ -12,23 +13,20 @@
 </head>
 <body>
     <div style="display:flex;">
-        <div id = "map" style="height: 900px; width: 1200px;"></div>   
+        <div id = "map" style="height: 900px; width: 85%;"></div>   
 
-        <form style="margin-left: 20px;" action="/index.html/submission-end">
-            <label for="startDate">Start Time</label>
-            <br>
-            <input id="startDate" type="date">
-            <input id="endDate" type="date">
-            <br>
-            <br>
-            <input id="minMag" placeholder="Minimum Magnitude">
-            <input id="maxMag" placeholder="Maximum Magnitude">
-            <br>
-            <br>
-            <label for="natural">Only View Natural Earthquakes</label>
-            <input id="natural" type="checkbox">
-            <br>
-            <button type="submit">Submit</button>
+        <form id="earthquakeSearch" style="margin-left: 10px; width:15%; background:rgb(147, 147, 227); padding:10px; text-align: center;" action="/index.html/submission-end">
+            <label>Start Date:<input id="startDate" name="startDate" type="date"></label>
+            <hr>
+            <label style="">End Date:<input id="endDate" name="endDate" type="date"></label>
+            <hr>
+            <input id="minMag" name="minMag" placeholder="Minimum Magnitude">
+            <hr>
+            <input id="maxMag" name="maxMag" placeholder="Maximum Magnitude">
+            <hr>
+            <label for="natural">Only View Natural Earthquakes<input id="natural" name="natural" type="checkbox"></label>
+            <hr>
+            <button type="submit" style="width:90%">Submit</button>
         </form>
     </div>
 </body>

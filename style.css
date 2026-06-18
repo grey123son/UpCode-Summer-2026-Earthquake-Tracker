@@ -1,0 +1,6 @@
+form *:not(hr){
+    margin:5px;
+}
+form hr{
+    border-color:black;
+}

@@ -1,3 +1,15 @@
+const form = document.getElementById("earthquakeSearch");
+
+form.addEventListener('submit', function (event){
+    event.preventDefault();
+
+    const formData = new FormData(event.target);
+
+    const formProps = Object.fromEntries(formData.entries());
+
+    console.log(formProps.startDate);
+});
+
 var map = L.map('map').setView([38.1187, -118.4751], 5);
 
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
