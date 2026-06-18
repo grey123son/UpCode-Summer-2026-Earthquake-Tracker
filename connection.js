@@ -47,9 +47,9 @@ async function getEarthquakes({
     return res.json();
 }
 
-getEarthquakes({
-    minMagnitude: 0,
-    maxMagnitude: 10,
-    isEarthquake: false,
-    limit: 70000,
-}).then(console.log).catch(console.error);
+// getEarthquakes({
+//     minMagnitude: 0,
+//     maxMagnitude: 10,
+//     isEarthquake: false,
+//     limit: 70000,
+// }).then(console.log).catch(console.error);
