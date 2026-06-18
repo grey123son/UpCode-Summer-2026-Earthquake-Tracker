@@ -27,7 +27,7 @@ form.addEventListener('submit', async function (event) {
     console.log("eqs:", earthquakes);
 
     earthquakes.forEach((quake) => {
-        addMarker(quake.y, quake.x, quake.mmi, quake.mag, quake.z, quake.title);
+        addMarker(quake.y, quake.x, quake.mmi, quake.mag, quake.z, quake.title, quake.time);
     });
 });
 
@@ -44,7 +44,7 @@ function clearMarkers() {
 }
 
 earthquakeSpots = L.layerGroup().addTo(map);
-function addMarker(lat, long, mmi, mag, depth, name){
+function addMarker(lat, long, mmi, mag, depth, name, time){
     if(mmi == null){
         estimatedMMI = 1.2 * mag - 1;
         if(estimatedMMI > 8){
@@ -63,7 +63,7 @@ function addMarker(lat, long, mmi, mag, depth, name){
 
     var radius = L.marker([lat, long]).addTo(map);
 
-    radius.bindTooltip(name, {
+    radius.bindTooltip((name+" "+new Date(time)), {
         permanent: false,
         direciton: "top",
         sticky: true
