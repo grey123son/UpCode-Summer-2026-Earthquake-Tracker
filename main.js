@@ -61,12 +61,7 @@ function addMarker(lat, long, mmi, mag, depth, name){
     
     console.log(estimatedFeltRadius)
 
-    var radius = L.circle([lat, long],{
-        color: 'red',
-        fillColor: '#f03',
-        fillOpacity: 0.5,
-        radius: estimatedFeltRadius*1000 
-    }).addTo(map);
+    var radius = L.marker([lat, long]).addTo(map);
 
     radius.bindTooltip(name, {
         permanent: false,
