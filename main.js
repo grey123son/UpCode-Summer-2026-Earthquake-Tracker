@@ -68,7 +68,7 @@ function addMarker(lat, long, mmi, mag, depth, name){
         radius: estimatedFeltRadius*1000 
     }).addTo(map);
 
-    radius.bindToolTip(name, {
+    radius.bindTooltip(name, {
         permanent: false,
         direciton: "top",
         sticky: true
