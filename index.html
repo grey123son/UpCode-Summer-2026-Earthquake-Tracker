@@ -9,12 +9,13 @@
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
      crossorigin=""></script>
+    <script src="connection.js"></script>
 </head>
 <body>
     <div style="display:flex;">
         <div id = "map" style="height: 900px; width: 1200px;"></div>   
 
-        <form style="margin-left: 20px;">
+        <form id = "earthquakeForm" style="margin-left: 20px;">
             <label for="startDate">Start Time</label>
             <br>
             <input id="startDate" type="date">
