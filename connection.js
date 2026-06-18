@@ -8,7 +8,7 @@ async function getEarthquakes({
     minMagnitude,
     maxMagnitude,
     isEarthquake,
-    limit = 1000,
+    limit = 70000,
 } = {}) {
     const params = new URLSearchParams({
         select: "id,mag,time,type,title,x,y,z",
