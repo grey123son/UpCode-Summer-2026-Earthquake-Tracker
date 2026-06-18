@@ -27,7 +27,7 @@ form.addEventListener('submit', async function (event) {
     console.log("eqs:", earthquakes);
 
     earthquakes.forEach((quake) => {
-        addMarker(quake.y, quake.x, quake.mmi, quake.mag, quake.z);
+        addMarker(quake.y, quake.x, quake.mmi, quake.mag, quake.z, quake.title);
     });
 });
 
