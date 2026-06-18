@@ -43,6 +43,14 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 }).addTo(map);
 
 var markers = [];
+
+function clearMarkers() {
+    markers.forEach((marker) => {
+        map.removeLayer(marker);
+    });
+
+    markers = [];
+}
 function addMarker(lat, long, mmi, mag, depth){
     if(mmi == null){
         estimatedMMI = 1.2 * mag - 1;
