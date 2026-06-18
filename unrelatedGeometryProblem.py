@@ -55,7 +55,7 @@ def diagonal_crossing(points):
         if i != minYi:
             thetas[i] = findTheta(points[minYi][0], points[minYi][1], points[i][0], points[i][1])
 
-    maxTheta = np.argmax(thetas)
+    maxTheta = thetas.index(max(thetas))
     useLater.remove(maxTheta)
 
     if thetas[useLater[0]] > thetas[useLater[1]]:
