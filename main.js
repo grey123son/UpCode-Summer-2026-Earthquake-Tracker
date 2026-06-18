@@ -32,9 +32,6 @@ form.addEventListener('submit', async function (event) {
 });
 
 
-
-
-
 var map = L.map('map').setView([38.1187, -118.4751], 5);
 
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -83,4 +80,4 @@ function addMarker(lat, long, mmi, mag, depth, name){
 
 }
 
-addMarker(35.2991666666667, -117.812333333333, 3.583, 3.55, 7.62);
+// addMarker(35.2991666666667, -117.812333333333, 3.583, 3.55, 7.62);
