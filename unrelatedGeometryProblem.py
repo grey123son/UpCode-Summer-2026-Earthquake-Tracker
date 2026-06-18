@@ -10,7 +10,7 @@ def intersect(x1, y1, x2, y2, b1, b2): # calcs intersect location
 def findTheta(x1, y1, x2, y2): # input is x and y of CHOSEN POINT, then x and y of other point
     if (x2 - x1) == 0:
         return np.pi / 2
-    elif y2 - y1 == 0:
+    elif y2 - y1 == 0:  
         if (x2 - x1) > 0:
             return 0
         else:
