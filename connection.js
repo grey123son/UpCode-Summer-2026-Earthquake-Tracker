@@ -53,3 +53,5 @@ async function getEarthquakes({
 //     isEarthquake: false,
 //     limit: 70000,
 // }).then(console.log).catch(console.error);
+
+window.getEarthquakes = getEarthquakes
